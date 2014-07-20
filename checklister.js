@@ -79,6 +79,11 @@ var getChecklist = function(callback){
   Trello.checklists.get(checklistID, function(checklist) {
     //checklist = {"id":"53c92832b6443a83d00f823b","name":"Checklist","idBoard":"527f42ea8ee8c6097300abb7","idCard":"53c9282a87ff2f837302c644","pos":16384,"checkItems":[{"state":"incomplete","id":"53c9289a1e373e70d2fcc40e","name":"apples","nameData":{"emoji":{}},"pos":17133},{"state":"incomplete","id":"53c9289d8f4bb1bed0520415","name":"kittens","nameData":{"emoji":{}},"pos":34367},{"state":"incomplete","id":"53c928a208c860dd4af8584e","name":"invert the main deflector dish","nameData":{"emoji":{}},"pos":50986},{"state":"incomplete","id":"53c92c35ce6b84afdd4e4ffe","name":"kitten apples","nameData":null,"pos":67606},{"state":"incomplete","id":"53c92c3a0d1160100e4a4072","name":"apple kittens","nameData":null,"pos":84133},{"state":"incomplete","id":"53c92c3e8a7791c62a4fbb41","name":"and a beagle","nameData":null,"pos":101299}]}
     console.log(checklist);
+    
+    Trello.cards.get(cardID,function(card){
+      $('#visitListButton').prop('disabled',false).click(function(){window.open(card.shortUrl,'_blank');});
+    })
+
     wholeChecklist = checklist
     $('#checklistName').text(wholeChecklist.name)
     $('#allItemsUL').empty()
