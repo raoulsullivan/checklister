@@ -1,0 +1,27 @@
+body {
+  padding-top: 60px;
+}
+/*#currentItemDiv {
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10 0 10 0;
+}*/
+#alertDiv {
+  display: none;
+}
+#currentItemText {
+  margin: 0 0 20 0;
+}
+#checklistName {
+  font-size: 1.5em;
+}
+.flash {
+  background-color: #d9edf7;
+}
+.strikeout {
+  text-decoration:line-through;
+}

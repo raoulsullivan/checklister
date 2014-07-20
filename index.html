@@ -1,0 +1,96 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Checklister for Trello">
+    <meta name="author" content="Stephen Raoul Sullivan">
+    <!--<link rel="icon" href="../../favicon.ico">-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="checklister.css">
+
+    <!--<script src="../jquery-2.1.1.min.js"></script>-->
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/1.1.0/annyang.min.js"></script>
+    <script src="https://api.trello.com/1/client.js?key=8f21bb535064f718834dcf8f6ad7743d"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script src="checklister.js"></script>
+  </head>
+
+  <body>
+    <!--navbar-->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Checklister</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <!--main container-->
+    <div class="container">
+      <div id="currentItemDiv" class="row">
+        <div class="alert alert-info">
+          <p id="currentItemText">No item</p>
+          <div class="btn-group btn-group-justified">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" onclick="checkCurrentItem()" disabled=true>Check</button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" onclick="skipCurrentItem()" disabled=true>Skip</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="repeatTimeInput" class="col-sm-8 control-label">Time between repeats</label>
+              <div class="col-sm-4">
+                <input type="number" class="form-control" id="repeatTimeInput" value="5">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cardIDInput" class="col-sm-8 control-label">Trello card ID</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="cardIDInput" value="53c9282a87ff2f837302c644">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="checklistIDInput" class="col-sm-8 control-label">Trello checklist ID</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="checklistIDInput" value="53c92832b6443a83d00f823b">
+              </div>
+            </div>
+            <button class="btn btn-default btn-block" id="connectButton">Connect</button>
+            <button class="btn btn-default btn-block" disabled=true id="disconnectButton">Disconnect</button>
+            <button class="btn btn-default btn-block" disabled=true id="restartButton">Restart</button>
+            <button class="btn btn-default btn-block" disabled=true id="resetButton">Reset</button>
+          </form>
+        </div>
+        <div class="col-md-8">
+          <p id="checklistName"></p>
+          <div id="allItemsDiv">
+            <ul id="allItemsUL"></ul> 
+          </div>
+        </div>
+      </div>
+      <div id="alertDiv" class="row"></div> 
+    </div>
+  </body>
+</html>
